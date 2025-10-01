@@ -1,3 +1,4 @@
+
 import flet as ft
 from datetime import datetime
 
@@ -56,9 +57,13 @@ def main(page: ft.Page):
 
     hobbies = ft.TextField(label="Hobbies/Interests", width=400, multiline=True)
 
+    # Output container with dark background
     output_container = ft.Container(
-        content=ft.Text("Fill out the form and click 'Generate Profile'."),
-        bgcolor=ft.Colors.GREY_100,
+        content=ft.Text(
+            "Fill out the form and click 'Generate Profile'.",
+            color=ft.Colors.WHITE
+        ),
+        bgcolor=ft.Colors.INDIGO_900,
         padding=15,
         border_radius=10,
         width=550
@@ -67,23 +72,28 @@ def main(page: ft.Page):
     # Functions
     def generate_profile(e):
         if not all([first_name.value, last_name.value, age.value]):
-            output_container.content = ft.Text("Please fill in all required fields (Name and Age)!")
+            output_container.content = ft.Text(
+                "Please fill in all required fields (Name and Age)!",
+                color=ft.Colors.WHITE
+            )
             page.update()
             return
+
         current_year = datetime.now().year
         birth_year = current_year - int(age.value)
         graduation_year = current_year + (4 - int(year_level.value[0]) if year_level.value else 4)
+
         profile_content = ft.Column([
-            ft.Text(f"Full Name: {first_name.value} {last_name.value}", size=16),
-            ft.Text(f"Student ID: {student_id.value or 'Not provided'}", size=16),
-            ft.Text(f"Age: {age.value} years old", size=16),
-            ft.Text(f"Birth Year: {birth_year}", size=16),
-            ft.Text(f"Program: {program_dropdown.value or 'Not selected'}", size=16),
-            ft.Text(f"Year Level: {year_level.value or 'Not selected'}", size=16),
-            ft.Text(f"Favorite Color: {favorite_color.value or 'Not selected'}", size=16),
-            ft.Text(f"Hobbies: {hobbies.value or 'Not provided'}", size=16),
-            ft.Text(f"Expected Graduation: {graduation_year}", size=16),
-            ft.Text(f"Profile generated on: {datetime.now().strftime('%B %d, %Y at %I:%M %p')}", size=12),
+            ft.Text(f"Full Name: {first_name.value} {last_name.value}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Student ID: {student_id.value or 'Not provided'}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Age: {age.value} years old", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Birth Year: {birth_year}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Program: {program_dropdown.value or 'Not selected'}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Year Level: {year_level.value or 'Not selected'}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Favorite Color: {favorite_color.value or 'Not selected'}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Hobbies: {hobbies.value or 'Not provided'}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Expected Graduation: {graduation_year}", size=16, color=ft.Colors.WHITE),
+            ft.Text(f"Profile generated on: {datetime.now().strftime('%B %d, %Y at %I:%M %p')}", size=12, color=ft.Colors.WHITE),
         ])
         output_container.content = profile_content
         page.update()
@@ -97,7 +107,10 @@ def main(page: ft.Page):
         year_level.value = None
         favorite_color.value = None
         hobbies.value = ""
-        output_container.content = ft.Text("Form cleared. Fill out the information again.")
+        output_container.content = ft.Text(
+            "Form cleared. Fill out the information again.",
+            color=ft.Colors.WHITE
+        )
         page.update()
 
     generate_btn = ft.ElevatedButton("Generate Profile", on_click=generate_profile, width=150)

@@ -36,8 +36,12 @@ The Challeges is Pushing commits to GitHub initially failed due to remote confli
 Understood the workflow of staging, committing, and pushing changes to GitHub.
 
 ## Screenshots
-- hello_flet.py running with all features
-- personal_info_gui.py with filled form and generated profile
+### Hello Flet Application Screenshot
+![Hello Flet Screenshot](screenshots/hello_flet.png)
+
+### Personal Info GUI Screenshot
+![Personal Info GUI Screenshot](screenshots/personal_info_gui.png)
+
 
 ## Future Enhancements
 [Ideas for improving the applications or additional features to implement]

@@ -42,6 +42,5 @@ Understood the workflow of staging, committing, and pushing changes to GitHub.
 ### Personal Info GUI Screenshot
 ![Personal Info GUI Screenshot](screenshots/personal_info_gui.png)
 
-
 ## Future Enhancements
 [Ideas for improving the applications or additional features to implement]
